@@ -10,23 +10,23 @@ var exec = require('cordova/exec');
 
 var Uservoice = function(){};
 
-Uservoice.init = function(site, key, secret){
-	cordova.exec(successCallback, errorCallback, "CDVUserVoice", 'init', [site, key, secret]);	
+Uservoice.init = function(config, successCallback, errorCallback){
+	cordova.exec(successCallback, errorCallback, "CDVUserVoice", 'init', [config.site, config.key, config.secret]);	
 };
 
-Uservoice.launchFeedback = function(){
+Uservoice.launchFeedback = function(successCallback, errorCallback){
 	cordova.exec(successCallback, errorCallback, "CDVUserVoice", 'launchFeedback', []);	
 };
 
-Uservoice.launchForum = function(){
+Uservoice.launchForum = function(successCallback, errorCallback){
 	cordova.exec(successCallback, errorCallback, "CDVUserVoice", 'launchForum', []);	
 };
 
-Uservoice.launchContactUs = function(){
+Uservoice.launchContactUs = function(successCallback, errorCallback){
 	cordova.exec(successCallback, errorCallback, "CDVUserVoice", 'launchContactUs', []);	
 };
 
-Uservoice.launchPostIdea = function(){
+Uservoice.launchPostIdea = function(successCallback, errorCallback){
 	cordova.exec(successCallback, errorCallback, "CDVUserVoice", 'launchPostIdea', []);	
 };
 
