@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Resgrid/cordova-plugin-uservoice.git"
+    "url": "git+https://github.com/KnowifyLLC/cordova-plugin-uservoice.git"
   },
   "keywords": [
     "cordova",
@@ -16,9 +16,9 @@
   "author": "Shawn Jackson",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Resgrid/cordova-plugin-uservoice/issues"
+    "url": "https://github.com/KnowifyLLC/cordova-plugin-uservoice/issues"
   },
-  "homepage": "https://github.com/Resgrid/cordova-plugin-uservoice#readme",
+  "homepage": "https://github.com/KnowifyLLC/cordova-plugin-uservoice#readme",
   "engines": {
     "cordovaDependencies": {
       "3.0.0": {
