@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-uservoice",
   "version": "1.0.0",
-  "description": "Cordova Android back-as-home Plugin",
+  "description": "Cordova Uservoice",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

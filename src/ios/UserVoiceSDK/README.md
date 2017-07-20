@@ -1,11 +1,15 @@
 ## UserVoice iOS SDK ([download demo app](https://itunes.apple.com/us/app/uservoice-help-center/id907516756))
 
+In this article, we will walk you through your options for setting up the iOS SDK.
+If you need features not outlined in this article, please share them as feature requests on our feedback forum [here](https://feedback.uservoice.com/forums/64513-developer-api-sdks/category/162129-mobile-sdks-any).
+That is the best channel for requesting additional functionality.
+
 The UserVoice iOS SDK allows you to integrate a native UserVoice experience directly in your iPhone or iPad app, allowing you to provide Instant Answers to your customers’ questions, a searchable knowledge base, and feedback forum. Our contact form is a friendlier experience than an email composer filled with debug information, and also eliminates those blank requests clogging up your inbox.
 
 To get started, you will need to have a free UserVoice account to connect to. Go to [uservoice.com/mobile/](https://uservoice.com/mobile/) to sign up for free.
 
 Binary builds of the SDK are available for download:
-* Current release is iOS 8 compatible: [3.2.3](https://github.com/uservoice/uservoice-ios-sdk/releases/tag/3.2.3) (updated 2015-01-30)
+* Current release is iOS 8 compatible: [3.2.9](https://github.com/uservoice/uservoice-ios-sdk/releases/tag/3.2.9) (updated 2017-06-30)
 * See [Releases](https://github.com/uservoice/uservoice-ios-sdk/releases) for release notes and previous versions
 
 Example apps:
@@ -29,6 +33,19 @@ Alternatively, you can install by hand:
   * When adding the folders, make sure you have "Create groups for any added folders" selected rather than "Create folder references for any added folders".
 * Note that the `.h` files in  `UVHeaders` do not need to be added to your target.
 * Add QuartzCore and SystemConfiguration frameworks to your project.
+
+## Swift
+
+The SDK is easily callable from Swift. You just need to:
+
+1. Add `pod 'uservoice-iphone-sdk', '~> 3.2'` to your [Podfile](https://github.com/uservoice/uservoice-ios-sdk-example-swift/blob/master/Podfile)
+2. `pod install`
+3. Add `#import "UserVoice.h"` to your [bridging header](https://github.com/uservoice/uservoice-ios-sdk-example-swift/blob/master/SDK%20Demo/UserVoice-Bridging-Header.h)
+4. Create a config: `var config = UVConfig(site: "demo.uservoice.com")`
+5. Pass the config: `UserVoice.initialize(config)`
+6. Launch the SDK: `UserVoice.presentUserVoiceInterfaceForParentViewController(self)`
+
+See the [swift example repo](https://github.com/uservoice/uservoice-ios-sdk-example-swift) for a working example.
 
 ## API
 
@@ -78,11 +95,11 @@ article.
 
     config.topicId = 123;
 
-### Custom Fields
+### Ticket Fields
 
-You can set custom field values on the `UVConfig` object. These will be used
+You can set ticket field values on the `UVConfig` object. These will be used
 associated with any tickets the user creates during their session. You can
-also use this to set default values for custom fields on the contact form.
+also use this to set default values for ticket fields on the contact form.
 
 Note: You must first configure these fields in the UserVoice admin console.
 If you pass fields that are not recognized by the server, they will be ignored.
@@ -172,7 +189,10 @@ The library will detect and display in the language the device is set to provide
 
 ### Private Sites
 
-The SDK relies on being able to obtain a client key to communicate with the UserVoice API. If you have a public UserVoice site (the default) then it can obtain this key automatically, so you only need to pass your site URL. However, if you turn on site privacy, this key is also private, so you will need to pass it in. You can obtain a client key pair from the mobile settings section of the UserVoice admin console.
+Note: UserVoice for iOS does **not** support private **forums**. This section is relevant to those using sitewide privacy.
+
+The SDK relies on being able to obtain a client key to communicate with the UserVoice API. If you have a public UserVoice site (the default) then it can obtain this key automatically, so you only need to pass your site URL. However, if you turn on site privacy, this key is also private, so you will need to pass it in. You can obtain a client key pair from the mobile settings section of the UserVoice admin console. Private sites are not supported unless the user is authenticated.
+
 
 ```
 UVConfig *config = [UVConfig configWithSite:@"yoursite.uservoice.com" andKey:@"CLIENT_KEY" andSecret:@"CLIENT_SECRET"];
@@ -193,7 +213,7 @@ The UserVoice Platform, including iOS & Android SDKs, is not COPPA compliant and
 Give us feedback!
 --------
 
-You can share feedback on our [Mobile SDKs forum](http://feedback.uservoice.com/forums/64519-mobile-sdks).
+You can share feedback on our [Mobile SDKs forum](https://feedback.uservoice.com/forums/64513-developer-api-sdks).
 
 FAQs
 --------
@@ -228,7 +248,7 @@ If you have any other questions please contact support@uservoice.com.
 Translations
 ------------
 
-UserVoice for iOS now has support for the following locales: ca, cs, da, de,
+UserVoice for iOS now has support for the following locales: af, ca, cs, da, de,
 el, en-GB, en, es, fi, fr, hr, hu, id, it, ja, ko, ms, nb, nl, pl, pt-PT, pt,
 ro, ru, sk, sv, th, tr, uk, vi, zh-Hans, zh-Hant.
 
@@ -292,3 +312,25 @@ limitations under the License.
 
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/f5b60bff0fbee98bc0e43f57eb49576f "githalytics.com")](http://githalytics.com/uservoice/uservoice-iphone-sdk)
+
+### Reporting Issues
+
+If you are finding an issue, first make sure you are using the latest version of the SDK:
+
+Latest Android SDK version here: https://github.com/uservoice/uservoice-ios-sdk/releases
+
+If you are on the latest version, you need to file an issue on our [github issues page](https://github.com/uservoice/uservoice-ios-sdk/issues) with the following information:
+
+* What behavior are you currently seeing? (ie. response, error, screen)
+
+* What behavior did you expect to see?
+
+Our engineers have requested example code from your team, which they can download example, run, and plainly see the resulting problem.  
+
+To do this, they will need:
+
+* The minimum amount of code required to demonstrate the problem using a [secret gist](gist.github.com).  
+* Isolate the problem to the few lines that call the SDK, plus the minimum boilerplate necessary to compile and run the example.
+* If we will need example secrets or a test account, make that clear in the code or accompanying explanation.
+
+Once filed, you can also reach out to our support team at questions@uservoice.com
