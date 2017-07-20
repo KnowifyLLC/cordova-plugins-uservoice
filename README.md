@@ -3,13 +3,6 @@ Resgrid's UserVoice Cordova Plugin
 
 PhoneGap / Cordova plugin for using the UserVoice service. Currently supports Android and iOS allowing for accessing the native UserVoice experience from a Cordova application. 
 
-About Resgrid
--------------
-Resgrid is a software as a service (SaaS) logistics, management and communications platform for first responders, volunteer fire departments, career/paid-on-call fire, EMS, Search and Rescue (SAR), public safety, HAZMAT, CERT, disaster response, etc.
-
-Resgrid is built on Microsoft's Azure platform, utilizing the Ionic Framework/Cordova/Angular for mobile applications.
-
-Sign up for your free [Resgrid Account Today!](https://resgrid.com).
 
 UserVoice
 -------------
